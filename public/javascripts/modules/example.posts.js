@@ -25,11 +25,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 }]);
 
 //Post Service, it holds the data!
-app.service('postService', ['$http', 'authService', function($http, authService) {
+app.service('postService', ['$http', function($http) {
 	this.posts = [];
 
 	this.getAll = function() {
-		console.log("getting all");
 		return $http.get('/posts').success(function(data) {
 			//todo: how to use my own js objects?
 			angular.copy(data, this.posts);
@@ -42,11 +41,7 @@ app.service('postService', ['$http', 'authService', function($http, authService)
 			link: link
 		};
 
-		return $http.post('/posts', post, {
-			headers: {
-				Authorization: 'Bearer ' + authService.getToken()
-			}
-		}).success(function(data) {
+		return $http.post('/posts', post).success(function(data) {
 			this.posts.push(data);
 		}.bind(this));
 	};
@@ -56,11 +51,7 @@ app.service('postService', ['$http', 'authService', function($http, authService)
 			body: body
 		}
 
-		return $http.post('/posts/' + post._id + "/comments", comment, {
-			headers: {
-				Authorization: 'Bearer ' + authService.getToken()
-			}
-		}).success(function(data) {
+		return $http.post('/posts/' + post._id + "/comments", comment).success(function(data) {
 			post.comments.push(data);
 		});
 	}
@@ -72,11 +63,7 @@ app.service('postService', ['$http', 'authService', function($http, authService)
 	};
 
 	this.upvote = function(post) {
-		return $http.put('/posts/' + post._id + '/upvote', {
-			headers: {
-				Authorization: 'Bearer ' + authService.getToken()
-			}
-		}).success(function(data) {
+		return $http.put('/posts/' + post._id + '/upvote').success(function(data) {
 			post.upvotes += 1;
 		});
 	};
