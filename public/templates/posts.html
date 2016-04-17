@@ -6,20 +6,22 @@
 </div>
 
 <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-  <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
-  {{comment.upvotes}} - by {{comment.author}}
+  <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span> {{comment.upvotes}}
   <span style="font-size:20px; margin-left:10px;">{{comment.body}}</span>
+  <span>por {{comment.author}}</span>
 </div>
 
-<form ng-submit="addComment()" ng-show="isLoggedIn()" style="margin-top:30px;">
-  <h3>Add a new comment</h3>
+<form ng-submit="addComment()" ng-show="isLoggedIn()" class="agregar">
+  <h3>Agregar comentario</h3>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Comment" ng-model="body"></input>
+    <input type="text" class="form-control" placeholder="Comentario" ng-model="body"></input>
   </div>
-  <button type="submit" class="btn btn-primary">Post</button>
+  <button type="submit" class="btn btn-primary">Agregar</button>
 </form>
 
 <div ng-hide="isLoggedIn()">
-  <h3>You need to <a href="/#/login">Log In</a> or 
-  <a href="/#/register">Register</a> before you can comment.</h3>
+  <h3>Para comentar es necesario un usuario registrado: 
+    <a href="/#/login">Ingresar</a> o
+    <a href="/#/register">Registrarse</a>
+  </h3>
 </div>

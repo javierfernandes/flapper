@@ -28,7 +28,7 @@ router.get('/posts', function(req, res, next) {
 //create new posts in mongo
 router.post('/posts', auth, function(req, res, next) {
   var post = new Post(req.body);
-  console.log(req.body);
+  post.author = req.payload.username;
 
   post.save(function(err, post) {
     if (err) return next(err);
@@ -37,7 +37,7 @@ router.post('/posts', auth, function(req, res, next) {
 });
 
 //maps the :post request parameter to something
-router.param("post", auth, function(req, res, next, id) {
+router.param("post", function(req, res, next, id) {
   var query = Post.findById(id);
 
   query.exec(function(err, post) {
@@ -52,7 +52,7 @@ router.param("post", auth, function(req, res, next, id) {
 });
 
 //maps the :comment parameter to something 
-router.param("comment", auth, function(req, res, next, id) {
+router.param("comment", function(req, res, next, id) {
   var query = Comment.findById(id);
   //TODO: can i find it in the context of the post already found??
   query.exec(function(err, comment) {
@@ -68,6 +68,7 @@ router.param("comment", auth, function(req, res, next, id) {
 
 //get a single post by id
 router.get('/posts/:post', function(req, res) {
+  console.log(req.post);
   req.post.populate('comments', function(err, post) {
     if (err) return next(err);
 
@@ -84,7 +85,7 @@ router.put('/posts/:post/upvote', auth, function(req, res, next) {
   });
 });
 
-//posting a comment
+//upvoting a comment
 router.put('/posts/:post/:comment/upvote', auth, function(req, res, next) {
   req.comment.upvote(function(err, comment) {
     if (err) return next(err);
@@ -108,6 +109,7 @@ router.delete('/posts', auth, function(req, res, next) {
 //posting a comment
 router.post('/posts/:post/comments', auth, function(req, res, next) {
   var comment = new Comment(req.body);
+  comment.author = req.payload.username;
   comment.post = req.post;
 
   //saves both objects

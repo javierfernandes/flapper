@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		templateUrl: "templates/home.html",
 		controller: "MainCtrl",
 		resolve: {
-			allPostsPromise: ['posts', function(postsService) {
+			allPostsPromise: ['postService', function(postsService) {
 				return postsService.getAll();
 			}]
 		}
@@ -17,7 +17,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		templateUrl: "/templates/posts.html",
 		controller: "PostsCtrl",
 		resolve: {
-			postPromise: ['$stateParams', 'posts', function($stateParams, postService) {
+			postPromise: ['$stateParams', 'postService', function($stateParams, postService) {
 				return postService.get($stateParams.id);
 			}]
 		}
@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 }]);
 
 //Post Service, it holds the data!
-app.service('posts', ['$http', 'authService', function($http, authService) {
+app.service('postService', ['$http', 'authService', function($http, authService) {
 	this.posts = [];
 
 	this.getAll = function() {
@@ -51,10 +51,9 @@ app.service('posts', ['$http', 'authService', function($http, authService) {
 		}.bind(this));
 	};
 
-	this.comment = function(post, body, authServiceor) {
+	this.comment = function(post, body) {
 		var comment = {
-			body: body,
-			authServiceor: authServiceor
+			body: body
 		}
 
 		return $http.post('/posts/' + post._id + "/comments", comment, {
@@ -84,7 +83,7 @@ app.service('posts', ['$http', 'authService', function($http, authService) {
 }]);
 
 //MainCtrl
-app.controller('MainCtrl', ['$scope', 'posts', 'authService', function($scope, postService, authService) {
+app.controller('MainCtrl', ['$scope', 'postService', 'authService', function($scope, postService, authService) {
 	$scope.posts = postService.posts;
 
 	$scope.addPost = function() {
@@ -104,14 +103,14 @@ app.controller('MainCtrl', ['$scope', 'posts', 'authService', function($scope, p
 }]);
 
 //PostsCtrl
-app.controller('PostsCtrl', ['$scope', 'posts', 'postPromise', 'authService', function($scope, postService, post, authService) {
-	$scope.post = post;
+app.controller('PostsCtrl', ['$scope', 'postService', 'postPromise', 'authService', function($scope, postService, postPromise, authService) {
+	$scope.post = postPromise;
 
 	$scope.addComment = function() {
 		if ($scope.body === '') {
 			return;
 		}
-		postService.comment($scope.post, $scope.body, 'user');
+		postService.comment($scope.post, $scope.body);
 		$scope.body = '';
 	};
 

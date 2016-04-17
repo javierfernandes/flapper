@@ -15,7 +15,7 @@ CommentSchema.methods.upvote = function(callback) {
 	this.save(callback);
 };
 
-CommentSchema.methods.downtovte = function(callback) {
+CommentSchema.methods.downvote = function(callback) {
 	this.upvotes--;
 	this.save(callback);
 };
