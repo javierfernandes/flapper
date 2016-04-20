@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+//var Post = require('./Posts')
 
 var CommentSchema = new mongoose.Schema({
 	body: String,
@@ -20,4 +21,4 @@ CommentSchema.methods.downvote = function(callback) {
 	this.save(callback);
 };
 
-mongoose.model('Comment', CommentSchema);
+module.exports = mongoose.model('Comment', CommentSchema);

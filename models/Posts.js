@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+//var Post = require('./Comments')
 
 var PostSchema = new mongoose.Schema({
 	title: String,
@@ -21,4 +22,4 @@ PostSchema.methods.downvote = function(callback) {
 	this.save(callback);
 }
 
-mongoose.model('Post', PostSchema);
+module.exports = mongoose.model('Post', PostSchema);

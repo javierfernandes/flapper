@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var mongoose = require("mongoose");
 var jwt = require('express-jwt');
 
-var Post = mongoose.model('Post');
-var Comment = mongoose.model('Comment');
+var Post = require('../models/Posts');
+var Comment = require('../models/Comments');
 
 var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
