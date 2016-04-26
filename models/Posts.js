@@ -17,10 +17,13 @@ PostSchema.methods.upvote = function(callback) {
 	this.save(callback);
 };
 
+PostSchema.methods.getDescription = function() {
+	return this.title + " by " + this.author;
+}
+
 PostSchema.methods.downvote = function(callback) {
 	this.upvotes -= 1;
-	this.save(callback);
-	
+	this.save(callback);	
 }
 
 module.exports = mongoose.model('Post', PostSchema);
