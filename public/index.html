@@ -16,10 +16,10 @@
 
   <body ng-app="example">
   
-    <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
+    <nav ng-controller="NavCtrl">
       <ul class="nav navbar-nav">
-        <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
-        <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Salir</a></li>
+        <li id="nombreUsuario" ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
+        <li ng-show="isLoggedIn()"><a href="#" ng-click="logOut()">Salir</a></li>
         
         <li ng-hide="isLoggedIn()"><a href="/#/login">Ingresar</a></li>
         <li ng-hide="isLoggedIn()"><a href="/#/register">Registrarse</a></li>
