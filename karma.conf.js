@@ -15,13 +15,18 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/angular/angular.min.js',
-      'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-
-      'public/javascripts/**/*.js',
-
-      'tests/frontend/**/*.js'
+    "public/javascripts/external/dependencies.js",
+    "public/javascripts/external/gran-cosa-con-todo.js",
+    "tests/frontend/dependencies/angular/angular.js",
+    "tests/frontend/dependencies/angular-mocks/angular-mocks.js",
+    "tests/frontend/dependencies/angular-ui-router/release/angular-ui-router.js",
+    "tests/frontend/dependencies/test-dependencies.js",
+    "public/javascripts/exampleApp.js",
+    "public/javascripts/modules/example.auth.js",
+    "public/javascripts/modules/example.cosas.js",
+    "public/javascripts/modules/example.posts.js",
+    "public/javascripts/modules/example.users.js",
+    "tests/frontend/modules/example.posts.test.js"
     ],
 
 
