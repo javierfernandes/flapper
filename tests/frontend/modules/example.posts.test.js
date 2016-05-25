@@ -30,7 +30,7 @@ describe("module example.posts", function() {
 					done();
 				});
 
-				var respuest = {
+				var respuesta = {
 					_id: "12345678",
 					upvotes: 13
 				};

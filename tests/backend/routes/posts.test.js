@@ -29,6 +29,10 @@ describe("router Posts", function() {
 		mockgoose.reset(done);
 	});
 
+	after(function(done) {
+		mongoose.disconnect(done);
+	});
+
 	var post;
 
 	beforeEach(function(done) {
@@ -41,7 +45,7 @@ describe("router Posts", function() {
 
 	describe("POST /posts/<id>/upvote", function() {
 
-		it("should increment upvote counter by one", function() {
+		it.skip("should increment upvote counter by one", function() {
 			request(app)
 				.put("/posts/" + post._id + "/upvote")
 				.expect(200)
