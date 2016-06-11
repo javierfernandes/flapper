@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  -  "0.12"
+before_script:
+  - npm install gulp
+script:
+  - gulp build
+
+deploy:
+  provider: openshift
+  user: "javier.fernandes@gmail.com"
+  password: $OPENSHIFT_PASSWORD
+  domain: "uqbar"
+  app: "flappernewsgulp"
+
+after_success:
+ - git config --global user.email "travis@localhost.localdomain"
+ - git config --global user.name "Travis CI"
+ - git add --all
+ - git commit -am "Travis change"

@@ -18,6 +18,10 @@ describe("model Post", function() {
 		mockgoose.reset(done);
 	})
 
+	after(function(done) {
+		mongoose.disconnect(done);
+	});
+
 	var post;
 
 	beforeEach(function(done) {
