@@ -24,6 +24,7 @@
   "devDependencies": {
     "bower": "^1.7.9",
     "chai": "^3.5.0",
+    "gulp-concat": "^2.6.0",
     "gulp-htmlmin": "^2.0.0",
     "gulp-include": "^2.1.0",
     "gulp-inject": "^4.1.0",
