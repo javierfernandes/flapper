@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>News!</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+
+    <!-- inject:js -->
+    <script src="javascripts/external/dependencies.js"></script>
+    <script src="javascripts/modules/example.auth.js"></script>
+    <script src="javascripts/modules/example.posts.js"></script>
+    <script src="javascripts/modules/example.users.js"></script>
+    <script src="javascripts/exampleApp.js"></script>
+    <!-- endinject -->
+
+    <style> .glyphicon-thumbs-up { cursor:pointer } </style>
+  </head>
+
+  <body ng-app="example">
+  
+    <nav ng-controller="NavCtrl">
+      <ul class="nav navbar-nav">
+        <li id="nombreUsuario" ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
+        <li ng-show="isLoggedIn()"><a href="#" ng-click="logOut()">Salir</a></li>
+        
+        <li ng-hide="isLoggedIn()"><a href="/#/login">Ingresar</a></li>
+        <li ng-hide="isLoggedIn()"><a href="/#/register">Registrarse</a></li>
+      </ul>
+    </nav>
+
+     <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <ui-view></ui-view>
+      </div>
+    </div>
+  </body>
+
+</html>

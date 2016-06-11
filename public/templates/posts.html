@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h3>
+    <a ng-show="post.link" href="{{post.link}}">{{post.title}}</a>
+    <span ng-hide="post.link">{{post.title}}</span>
+  </h3>
+</div>
+
+<div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+  <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span> {{comment.upvotes}}
+  <span style="font-size:20px; margin-left:10px;">{{comment.body}}</span>
+  <span>por {{comment.author}}</span>
+</div>
+
+<form ng-submit="addComment()" ng-show="isLoggedIn()" class="agregar">
+  <h3>Agregar comentario</h3>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Comentario" ng-model="body"></input>
+  </div>
+  <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+
+<div ng-hide="isLoggedIn()">
+  <h3>Para comentar es necesario un usuario registrado: 
+    <a href="/#/login">Ingresar</a> o
+    <a href="/#/register">Registrarse</a>
+  </h3>
+</div>
