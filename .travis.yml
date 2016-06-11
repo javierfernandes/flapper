@@ -11,6 +11,7 @@ deploy:
   user: "javier.fernandes@gmail.com"
   password: $OPENSHIFT_PASSWORD
   domain: "uqbar"
-  app: "flappernewsgulp"
+  app: 
+    continuousdeployment: "flappernewsgulp"
 
 
