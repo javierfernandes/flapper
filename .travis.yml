@@ -7,9 +7,6 @@ script:
   - gulp build
 
 deploy:
-  provider: openshift
-  user: "javier.fernandes@gmail.com"
-  password: $OPENSHIFT_PASSWORD
-  domain: "uqbar"
-  app: "flappernewsgulp"
-
+  provider: heroku
+  api_key:
+    secure: $HEROKU_API_KEY
