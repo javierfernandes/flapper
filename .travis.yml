@@ -11,6 +11,7 @@ deploy:
   user: "javier.fernandes@gmail.com"
   password: "YOUR PASSWORD" # can be encrypted
   domain: "uqbar"
-  app: "flappernewsgulp"
+  app: 
+    continuousdeployment: "flappernewsgulp"
 
 
