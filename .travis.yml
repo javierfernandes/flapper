@@ -9,7 +9,7 @@ script:
 deploy:
   provider: openshift
   user: "javier.fernandes@gmail.com"
-  password: "YOUR PASSWORD" # can be encrypted
+  password: $OPENSHIFT_PASSWORD
   domain: "uqbar"
   app: 
     continuousdeployment: "flappernewsgulp"
