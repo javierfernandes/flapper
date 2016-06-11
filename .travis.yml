@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  -  "0.12"
+before_script:
+  - npm install -g gulp
+script:
+  - gulp build
+
+deploy:
+  provider: openshift
+  user: "javier.fernandes@gmail.com"
+  password: "YOUR PASSWORD" # can be encrypted
+  domain: "uqbar"
+  app: "flappernewsgulp"
+
+
