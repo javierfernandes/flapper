@@ -11,8 +11,7 @@ deploy:
   user: "javier.fernandes@gmail.com"
   password: $OPENSHIFT_PASSWORD
   domain: "uqbar"
-  app: 
-    continuousdeployment: "flappernewsgulp"
+  app: "flappernewsgulp"
 
 after_success:
  - git config --global user.email "travis@localhost.localdomain"
