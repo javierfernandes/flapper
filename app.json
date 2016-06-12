@@ -8,8 +8,9 @@
     }
   },
   "formation": {
-    "free": {
-      "quantity": 1
+    "web": {
+      "quantity": 1,
+      "size" : "Free"
     }
   },
   "addons": [],
