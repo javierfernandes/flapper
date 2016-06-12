@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/javierfernandes/flapper.svg?branch=master)](https://travis-ci.org/javierfernandes/flapper) [![Heroku](https://heroku-badge.herokuapp.com/?app=pdes-flappernews)](https://heroku-badge.herokuapp.com/?app=pdes-flappernews)
+[![Build Status](https://travis-ci.org/javierfernandes/flapper.svg?branch=master)](https://travis-ci.org/javierfernandes/flapper) [![Heroku](https://heroku-badge.herokuapp.com/?app=pdes-flappernews)](https://heroku-badge.herokuapp.com/?app=pdes-flappernews) [![Dependencies](https://david-dm.org/javierfernandes/flapper.png)](https://david-dm.org/javierfernandes/flapper)
+
 
 # Flapper-News (CD)
 
