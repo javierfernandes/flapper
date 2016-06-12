@@ -9,12 +9,11 @@
   },
   "formation": {
     "web": {
-      "quantity": 1
+      "quantity": 1,
+      "size" : "Free"
     }
   },
-  "addons": [
-
-  ],
+  "addons": [],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
