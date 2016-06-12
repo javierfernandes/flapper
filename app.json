@@ -1,6 +1,7 @@
 {
-  "name": "master",
-  "scripts": {},
+  "name": "flapper",
+  "scripts": {
+  },
   "env": {
     "HEROKU_MONGODB_URI": {
       "required": true
