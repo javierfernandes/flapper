@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/javierfernandes/flapper.svg?branch=master)](https://travis-ci.org/javierfernandes/flapper) [Heroku](https://heroku-badge.herokuapp.com/?app=pdes-flappernews)
+[![Build Status](https://travis-ci.org/javierfernandes/flapper.svg?branch=master)](https://travis-ci.org/javierfernandes/flapper) [![Heroku](https://heroku-badge.herokuapp.com/?app=pdes-flappernews)(https://heroku-badge.herokuapp.com/?app=pdes-flappernews)]
 
 # Flapper-News (CD)
 
