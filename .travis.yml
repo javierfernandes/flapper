@@ -6,8 +6,3 @@ before_script:
 script:
   - gulp build
 
-deploy:
-  provider: heroku
-  app: pdes-flappernews
-  api_key:
-    secure: $HEROKU_API_KEY
