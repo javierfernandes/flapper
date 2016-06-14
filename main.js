@@ -1,6 +1,8 @@
 var pm2 = require('pm2');
 
-var MACHINE_NAME = 'hk1';
+var os = require("os");
+
+var MACHINE_NAME = os.hostname();
 var PRIVATE_KEY  = '53bkq94mek272um';   // Keymetrics Private key
 var PUBLIC_KEY   = '7mw4h5dnzy7hyr4';   // Keymetrics Public  key
 
@@ -9,7 +11,7 @@ var maxMemory = process.env.WEB_MEMORY      || 512;// " " "
 
 pm2.connect(function() {
   pm2.start({
-    script    : 'bin/www',
+    script    : './bin/www',
     name      : 'pdes-flappernews',     // ----> THESE ATTRIBUTES ARE OPTIONAL:
     exec_mode : 'cluster',            // ----> https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#schema
     instances : instances,
