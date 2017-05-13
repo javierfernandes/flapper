@@ -79,7 +79,7 @@ gulp.task("test:frontend", ["karma:dependency:link"], function(done) {
 
 gulp.task("test:e2e", ["build"], function() {
 	return gulp.src(sources.test.e2e)
-		.pipe(protractor({configFile: "protractor.conf.js"}));
+		.pipe(protractor({ configFile: "protractor.conf.js" }));
 });
 
 gulp.task("build", ["dependency:link"]);
