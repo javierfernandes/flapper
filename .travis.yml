@@ -6,11 +6,3 @@ before_script:
 script:
   - gulp build
 
-deploy:
-  provider: openshift
-  user: "javier.fernandes@gmail.com"
-  password: $OPENSHIFT_PASSWORD
-  domain: "uqbar"
-  app: "flappernewsgulp"
-
-
